@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0f172a" />
+
+  <!-- SEO / Compartir en redes -->
+  <title>Invitación · Cumpleaños de Miguel Espinoza</title>
+  <meta name="description" content="Estás invitado a celebrar el cumpleaños de Miguel Espinoza — Sábado 27 de Septiembre, 1:00 PM, Urb. El Bosque T-6, Castilla - Piura." />
+  <meta property="og:title" content="¡Celebrando la vida de Miguel Espinoza!" />
+  <meta property="og:description" content="Tienes una invitación especial. Ábrela y confirma tu asistencia." />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts: Cinzel (títulos elegantes) + Poppins (cuerpo) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Playfair+Display:ital,wght@0,600;1,500&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Estilos propios -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+
+  <!-- ============================================================= -->
+  <!-- CAPA DE PARTÍCULAS / BRILLOS DE FONDO (canvas dinámico en JS) -->
+  <!-- ============================================================= -->
+  <canvas id="particles" aria-hidden="true"></canvas>
+  <canvas id="confetti" aria-hidden="true"></canvas>
+
+  <!-- ============================================================= -->
+  <!-- 🟢 VENTANA 1 · SPLASH / SOBRE VIRTUAL (Unboxing)             -->
+  <!-- ============================================================= -->
+  <section id="splash" class="splash" role="dialog" aria-label="Invitación">
+    <div class="envelope-wrap">
+      <div class="envelope" id="envelope">
+        <div class="env-flap"></div>
+        <div class="env-body">
+          <div class="env-seal">✦</div>
+        </div>
+      </div>
+
+      <p class="splash-eyebrow">Tienes una invitación especial de</p>
+      <h1 class="splash-name">Miguel Espinoza</h1>
+      <p class="splash-sub">Un motivo para reunirnos y celebrar juntos ✨</p>
+
+      <button id="openBtn" class="btn-open" type="button">
+        <span class="btn-open__label">ABRIR INVITACIÓN</span>
+        <span class="btn-open__icon" aria-hidden="true">✉️</span>
+      </button>
+
+      <p class="splash-hint">Toca el botón para descubrir los detalles</p>
+    </div>
+  </section>
+
+  <!-- ============================================================= -->
+  <!-- 🔵 VENTANA 2 · TARJETA PRINCIPAL                             -->
+  <!-- ============================================================= -->
+  <main id="invitation" class="invitation" hidden>
+
+    <!-- ---------- HERO ---------- -->
+    <header class="hero reveal">
+      <p class="hero-eyebrow">Cumpleaños</p>
+      <h2 class="hero-title">¡Celebrando la vida de<br /><span>Miguel Espinoza!</span></h2>
+      <div class="hero-divider" aria-hidden="true"><span>✦</span></div>
+
+      <!-- Cuenta regresiva -->
+      <section class="countdown glass" aria-label="Cuenta regresiva">
+        <p class="countdown-label">Faltan para la gran celebración</p>
+        <div id="countdown" class="countdown-grid" role="timer" aria-live="polite">
+          <div class="cd-unit"><span class="cd-num" id="cd-days">00</span><span class="cd-lbl">Días</span></div>
+          <div class="cd-sep">:</div>
+          <div class="cd-unit"><span class="cd-num" id="cd-hours">00</span><span class="cd-lbl">Horas</span></div>
+          <div class="cd-sep">:</div>
+          <div class="cd-unit"><span class="cd-num" id="cd-minutes">00</span><span class="cd-lbl">Min</span></div>
+          <div class="cd-sep">:</div>
+          <div class="cd-unit"><span class="cd-num" id="cd-seconds">00</span><span class="cd-lbl">Seg</span></div>
+        </div>
+        <p id="countdown-done" class="countdown-done" hidden>🎉 ¡Hoy es el gran día! 🎉</p>
+      </section>
+    </header>
+
+    <!-- ---------- DETALLES DEL EVENTO ---------- -->
+    <section class="details reveal" aria-label="Detalles del evento">
+      <article class="detail-card glass">
+        <div class="detail-ico">📅</div>
+        <h3>Fecha</h3>
+        <p>Sábado<br /><strong>27 de Septiembre</strong></p>
+      </article>
+
+      <article class="detail-card glass">
+        <div class="detail-ico">🕐</div>
+        <h3>Hora</h3>
+        <p>1:00 PM<br /><strong>Almuerzo &amp; Celebración</strong></p>
+      </article>
+
+      <article class="detail-card glass">
+        <div class="detail-ico">📍</div>
+        <h3>Lugar</h3>
+        <p>Urb. El Bosque T-6<br /><strong>Castilla · Piura</strong></p>
+      </article>
+    </section>
+
+    <!-- ---------- CÓMO LLEGAR (acordeón) ---------- -->
+    <section class="how reveal" aria-label="Cómo llegar">
+      <h3 class="section-title"><span>🧭 Cómo Llegar</span></h3>
+
+      <div class="accordion glass">
+        <button class="accordion-head" id="accHead" type="button" aria-expanded="false" aria-controls="accBody">
+          <span>Guía paso a paso &amp; referencias</span>
+          <span class="accordion-chevron" aria-hidden="true">⌄</span>
+        </button>
+
+        <div class="accordion-body" id="accBody" role="region" aria-labelledby="accHead" hidden>
+          <ol class="steps">
+            <li>
+              <span class="step-n">1</span>
+              <span class="step-txt"><strong>Av. Cáceres</strong> — cerca al puente hacia Miraflores Country Club.</span>
+            </li>
+            <li>
+              <span class="step-n">2</span>
+              <span class="step-txt">Frente al <strong>GRIFO AVA</strong> (pasando la doble vía de la avenida).</span>
+            </li>
+            <li>
+              <span class="step-n">3</span>
+              <span class="step-txt">En la vía auxiliar: ubica el <strong>VIVERO URBANO</strong> (malla metálica). El centro queda al costado, hacia el canal.</span>
+            </li>
+            <li>
+              <span class="step-n">4</span>
+              <span class="step-txt"><strong>Fachada:</strong> a mitad de cuadra — pared color marrón verdoso, portón y puerta blancos.</span>
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <a class="btn-maps"
+         href="https://maps.app.goo.gl/yTg3vfs6yJ45zz5i9?g_st=ac"
+         target="_blank" rel="noopener noreferrer">
+        <span aria-hidden="true">📍</span> ABRIR EN GOOGLE MAPS (CÓMO LLEGAR)
+      </a>
+    </section>
+
+    <!-- ---------- RSVP ---------- -->
+    <section class="rsvp reveal" aria-label="Confirmación de asistencia">
+      <h3 class="section-title"><span>✍️ Confirma tu Asistencia</span></h3>
+      <p class="rsvp-lead">Tu respuesta nos ayuda muchísimo a organizar todo con cariño 💛</p>
+
+      <form id="rsvpForm" class="rsvp-form glass" novalidate>
+        <!-- Nombre -->
+        <div class="field">
+          <label for="nombre">Nombre y apellidos <span class="req">*</span></label>
+          <input type="text" id="nombre" name="nombre" placeholder="Ej. Ana Martínez Rojas" required autocomplete="name" />
+          <small class="field-error" data-for="nombre"></small>
+        </div>
+
+        <!-- Asistencia -->
+        <div class="field">
+          <span class="field-lbl">¿Nos acompañas? <span class="req">*</span></span>
+          <div class="choice-group">
+            <label class="choice">
+              <input type="radio" name="asistencia" value="Sí, asistiré" required />
+              <span class="choice-box">🎉 ¡Sí, ahí estaré a celebrar!</span>
+            </label>
+            <label class="choice">
+              <input type="radio" name="asistencia" value="No podré asistir" />
+              <span class="choice-box">😔 Lamentablemente no podré ir</span>
+            </label>
+          </div>
+          <small class="field-error" data-for="asistencia"></small>
+        </div>
+
+        <!-- Acompañantes -->
+        <div class="field" id="wrapAcompanantes">
+          <label for="acompanantes">Número de acompañantes</label>
+          <select id="acompanantes" name="acompanantes">
+            <option value="0">0 — Voy solo/a</option>
+            <option value="1">1 acompañante</option>
+            <option value="2">2 acompañantes</option>
+            <option value="3">3 acompañantes</option>
+            <option value="4">4 acompañantes</option>
+          </select>
+        </div>
+
+        <!-- Restricciones / bebida -->
+        <div class="field">
+          <label for="restricciones">Restricciones alimentarias, alergias o bebida preferida <span class="opt">(opcional)</span></label>
+          <input type="text" id="restricciones" name="restricciones" placeholder="Ej. Vegetariano / Alérgico a mariscos / Chicha morada" />
+        </div>
+
+        <!-- Mensaje -->
+        <div class="field">
+          <label for="mensaje">Un mensaje especial para Miguel <span class="opt">(opcional)</span></label>
+          <textarea id="mensaje" name="mensaje" rows="3" placeholder="Escríbele unas palabras bonitas 💬"></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit" id="submitBtn">
+          <span class="btn-submit__text">Enviar confirmación</span>
+        </button>
+
+        <!-- Mensajes de estado -->
+        <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
+      </form>
+
+      <!-- Éxito -->
+      <div id="successBox" class="success-box glass" hidden>
+        <div class="success-check" aria-hidden="true">✓</div>
+        <h3>¡Confirmación recibida! 🎊</h3>
+        <p id="successMsg">Gracias por acompañarnos. ¡Nos vemos en la celebración!</p>
+        <a id="calendarBtn" class="btn-calendar" href="#" target="_blank" rel="noopener noreferrer">
+          <span aria-hidden="true">📆</span> Añadir a Google Calendar
+        </a>
+        <button type="button" id="editAgain" class="btn-link">Enviar otra respuesta</button>
+      </div>
+    </section>
+
+    <!-- ---------- FOOTER ---------- -->
+    <footer class="footer reveal">
+      <div class="hero-divider" aria-hidden="true"><span>✦</span></div>
+      <p>Con cariño,</p>
+      <p class="footer-name">Miguel Espinoza</p>
+      <p class="footer-small">Te esperamos con mucha alegría 🥂</p>
+    </footer>
+  </main>
+
+  <!-- ============================================================= -->
+  <!-- 🎵 REPRODUCTOR DE MÚSICA FLOTANTE                            -->
+  <!-- ============================================================= -->
+  <div id="player" class="player" hidden>
+    <audio id="audio" loop preload="none">
+      <source src="assets/audio/musica.mp3" type="audio/mpeg" />
+    </audio>
+
+    <button id="playerToggle" class="player-disc" type="button"
+            aria-label="Reproducir o pausar música" title="Música">
+      <span class="player-disc__ring"></span>
+      <span class="player-disc__eq" aria-hidden="true">
+        <i></i><i></i><i></i><i></i>
+      </span>
+      <span class="player-disc__note" aria-hidden="true">♫</span>
+    </button>
+
+    <div class="player-vol">
+      <button id="muteToggle" class="player-mini" type="button" aria-label="Silenciar">🔊</button>
+      <input id="volume" class="player-range" type="range" min="0" max="100" value="65" aria-label="Volumen" />
+    </div>
+  </div>
+
+  <!-- ============================================================= -->
+  <!-- SCRIPTS (módulos, orden importa)                             -->
+  <!-- ============================================================= -->
+  <script src="js/countdown.js"></script>
+  <script src="js/rsvp.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

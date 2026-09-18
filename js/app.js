@@ -34,13 +34,6 @@
   function openInvitation() {
     if (!splash || splash.classList.contains("is-hidden")) return;
 
-    // Animación del sobre (abrir la solapa)
-    var envelope = doc.getElementById("envelope");
-    if (envelope) {
-      var flap = envelope.querySelector(".env-flap");
-      if (flap) flap.style.transform = "rotateX(180deg)";
-    }
-
     // Iniciar audio de forma limpia (gesto del usuario => permitido)
     startAudio();
 

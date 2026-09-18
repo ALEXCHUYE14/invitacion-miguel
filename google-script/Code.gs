@@ -31,8 +31,6 @@ var HEADERS = [
   "Fecha de envío",
   "Nombre y Apellidos",
   "Asistencia",
-  "N° Acompañantes",
-  "Restricciones / Bebida",
   "Mensaje para Miguel"
 ];
 
@@ -53,8 +51,6 @@ function doPost(e) {
       params.fecha_envio ? new Date(params.fecha_envio) : new Date(),
       sanitize_(params.nombre),
       sanitize_(params.asistencia),
-      sanitize_(params.acompanantes) || "0",
-      sanitize_(params.restricciones),
       sanitize_(params.mensaje)
     ];
 

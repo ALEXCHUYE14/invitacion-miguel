@@ -23,6 +23,21 @@
 
 <body>
 
+  <!-- Definición reutilizable del ícono de ubicación (pin realista) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="pinGradient" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#fb7185" />
+        <stop offset="100%" stop-color="#dc2626" />
+      </linearGradient>
+      <symbol id="icon-pin" viewBox="0 0 24 24">
+        <path fill="url(#pinGradient)" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+        <circle cx="12" cy="9" r="2.7" fill="#fff" />
+        <circle cx="12" cy="9" r="2.7" fill="none" stroke="#b91c1c" stroke-width="0.4" opacity="0.4" />
+      </symbol>
+    </defs>
+  </svg>
+
   <!-- ============================================================= -->
   <!-- CAPA DE PARTÍCULAS / BRILLOS DE FONDO (canvas dinámico en JS) -->
   <!-- ============================================================= -->
@@ -33,17 +48,21 @@
   <!-- 🟢 VENTANA 1 · SPLASH / SOBRE VIRTUAL (Unboxing)             -->
   <!-- ============================================================= -->
   <section id="splash" class="splash" role="dialog" aria-label="Invitación">
-    <div class="envelope-wrap">
-      <div class="envelope" id="envelope">
-        <div class="env-flap"></div>
-        <div class="env-body">
-          <div class="env-seal">✦</div>
-        </div>
-      </div>
+    <div class="sparkles" aria-hidden="true">
+      <span class="spark s1">✦</span>
+      <span class="spark s2">✦</span>
+      <span class="spark s3">✦</span>
+      <span class="spark s4">✦</span>
+      <span class="spark s5">✦</span>
+      <span class="spark s6">✦</span>
+      <span class="spark s7">✦</span>
+      <span class="spark s8">✦</span>
+    </div>
 
+    <div class="envelope-wrap">
       <p class="splash-eyebrow">Tienes una invitación especial de</p>
       <h1 class="splash-name">Miguel Espinoza</h1>
-      <p class="splash-sub">Un motivo para reunirnos y celebrar juntos ✨</p>
+      <p class="splash-sub">¡Está por cumplir 50 años y quiere celebrarlo junto a ti! ✨</p>
 
       <button id="openBtn" class="btn-open" type="button">
         <span class="btn-open__label">ABRIR INVITACIÓN</span>
@@ -61,8 +80,13 @@
 
     <!-- ---------- HERO ---------- -->
     <header class="hero reveal">
-      <p class="hero-eyebrow">Cumpleaños</p>
+      <div class="hero-photo">
+        <img src="assets/img/foto-miguel.png" alt="Miguel Espinoza" loading="eager" />
+        <span class="hero-photo__badge" aria-hidden="true">50</span>
+      </div>
+      <p class="hero-eyebrow">Cumpleaños Nº 50</p>
       <h2 class="hero-title">¡Celebrando la vida de<br /><span>Miguel Espinoza!</span></h2>
+      <p class="hero-sub">Está por cumplir 50 años de vida y quiere celebrarlo a lo grande 🥂</p>
       <div class="hero-divider" aria-hidden="true"><span>✦</span></div>
 
       <!-- Cuenta regresiva -->
@@ -82,21 +106,21 @@
     </header>
 
     <!-- ---------- DETALLES DEL EVENTO ---------- -->
-    <section class="details reveal" aria-label="Detalles del evento">
-      <article class="detail-card glass">
+    <section class="details" aria-label="Detalles del evento">
+      <article class="detail-card glass reveal">
         <div class="detail-ico">📅</div>
         <h3>Fecha</h3>
         <p>Sábado<br /><strong>27 de Septiembre</strong></p>
       </article>
 
-      <article class="detail-card glass">
+      <article class="detail-card glass reveal">
         <div class="detail-ico">🕐</div>
         <h3>Hora</h3>
         <p>1:00 PM<br /><strong>Almuerzo &amp; Celebración</strong></p>
       </article>
 
-      <article class="detail-card glass">
-        <div class="detail-ico">📍</div>
+      <article class="detail-card glass reveal">
+        <div class="detail-ico"><svg class="pin-ico" aria-hidden="true"><use href="#icon-pin"></use></svg></div>
         <h3>Lugar</h3>
         <p>Urb. El Bosque T-6<br /><strong>Castilla · Piura</strong></p>
       </article>
@@ -134,10 +158,20 @@
         </div>
       </div>
 
+      <div class="map-embed glass">
+        <iframe
+          src="https://www.google.com/maps?cid=18317341962829623372&output=embed"
+          width="100%" height="100%"
+          style="border:0"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Mapa de ubicación del evento"></iframe>
+      </div>
+
       <a class="btn-maps"
          href="https://maps.app.goo.gl/yTg3vfs6yJ45zz5i9?g_st=ac"
          target="_blank" rel="noopener noreferrer">
-        <span aria-hidden="true">📍</span> ABRIR EN GOOGLE MAPS (CÓMO LLEGAR)
+        <svg class="pin-ico" aria-hidden="true"><use href="#icon-pin"></use></svg> ABRIR EN GOOGLE MAPS (CÓMO LLEGAR)
       </a>
     </section>
 
@@ -168,24 +202,6 @@
             </label>
           </div>
           <small class="field-error" data-for="asistencia"></small>
-        </div>
-
-        <!-- Acompañantes -->
-        <div class="field" id="wrapAcompanantes">
-          <label for="acompanantes">Número de acompañantes</label>
-          <select id="acompanantes" name="acompanantes">
-            <option value="0">0 — Voy solo/a</option>
-            <option value="1">1 acompañante</option>
-            <option value="2">2 acompañantes</option>
-            <option value="3">3 acompañantes</option>
-            <option value="4">4 acompañantes</option>
-          </select>
-        </div>
-
-        <!-- Restricciones / bebida -->
-        <div class="field">
-          <label for="restricciones">Restricciones alimentarias, alergias o bebida preferida <span class="opt">(opcional)</span></label>
-          <input type="text" id="restricciones" name="restricciones" placeholder="Ej. Vegetariano / Alérgico a mariscos / Chicha morada" />
         </div>
 
         <!-- Mensaje -->
@@ -227,13 +243,14 @@
   <!-- 🎵 REPRODUCTOR DE MÚSICA FLOTANTE                            -->
   <!-- ============================================================= -->
   <div id="player" class="player" hidden>
-    <audio id="audio" loop preload="none">
-      <source src="assets/audio/musica.mp3" type="audio/mpeg" />
+    <audio id="audio" loop preload="auto">
+      <source src="assets/audio/Gian%20Marco%20-%20El%20Ritmo%20de%20mi%20Coraz%C3%B3n%20ft.%20Grupo%205%20-%20Tony%20Succar.mp3" type="audio/mpeg" />
     </audio>
 
     <button id="playerToggle" class="player-disc" type="button"
             aria-label="Reproducir o pausar música" title="Música">
       <span class="player-disc__ring"></span>
+      <span class="player-disc__label" aria-hidden="true"></span>
       <span class="player-disc__eq" aria-hidden="true">
         <i></i><i></i><i></i><i></i>
       </span>

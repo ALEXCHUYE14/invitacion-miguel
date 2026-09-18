@@ -17,7 +17,7 @@
      Ejemplo: https://script.google.com/macros/s/AKfy..../exec
   ------------------------------------------------------------- */
   var CONFIG = {
-    ENDPOINT: "REEMPLAZA_CON_TU_URL_DE_GOOGLE_APPS_SCRIPT",
+    ENDPOINT: "https://script.google.com/macros/s/AKfycbzJnK6wqlQPN4LxH23Jl2uNDSt-tkdmsrhoekksSlbLHRKyS7h2DzasYts_iC85XOke/exec",
 
     // Datos del evento para Google Calendar
     EVENT: {
@@ -35,16 +35,10 @@
   var successMsg  = document.getElementById("successMsg");
   var calendarBtn = document.getElementById("calendarBtn");
   var editAgain   = document.getElementById("editAgain");
-  var wrapAcomp   = document.getElementById("wrapAcompanantes");
 
   if (!form) return;
 
-  // ---------- MOSTRAR / OCULTAR ACOMPAÑANTES SEGÚN ASISTENCIA ----------
   form.addEventListener("change", function (e) {
-    if (e.target.name === "asistencia") {
-      var noVa = e.target.value === "No podré asistir";
-      if (wrapAcomp) wrapAcomp.classList.toggle("hide", noVa);
-    }
     clearError(e.target);
   });
 
@@ -162,8 +156,6 @@
     var data = {
       nombre:        (form.nombre.value || "").trim(),
       asistencia:    (form.asistencia.value || ""),
-      acompanantes:  form.acompanantes ? form.acompanantes.value : "0",
-      restricciones: (form.restricciones.value || "").trim(),
       mensaje:       (form.mensaje.value || "").trim(),
       fecha_envio:   new Date().toISOString()
     };
@@ -173,9 +165,6 @@
       statusEl.textContent = "Revisa los campos marcados.";
       return;
     }
-
-    // Si no confirmó asistencia, no cuentan los acompañantes
-    if (data.asistencia === "No podré asistir") data.acompanantes = "0";
 
     setLoading(true);
     sendToServer(data);
@@ -223,7 +212,6 @@
       successBox.hidden = true;
       form.hidden = false;
       form.reset();
-      if (wrapAcomp) wrapAcomp.classList.remove("hide");
       statusEl.textContent = "";
       form.scrollIntoView({ behavior: "smooth", block: "center" });
     });

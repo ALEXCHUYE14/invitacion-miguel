@@ -1,6 +1,0 @@
-Coloca aquí tu archivo de audio con el nombre EXACTO:  musica.mp3
-
-Canción: Gian Marco - El Ritmo de mi Corazón ft. Grupo 5 - Tony Succar
-Ruta final esperada:  assets/audio/musica.mp3
-
-(Puedes borrar este archivo .txt una vez agregues el MP3.)

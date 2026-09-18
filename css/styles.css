@@ -563,13 +563,11 @@ button { font-family: inherit; cursor: pointer; }
 .player-disc {
   position: relative;
   width: 62px; height: 62px; border-radius: 50%;
-  border: 2px solid var(--gold-500);
-  border-image: linear-gradient(135deg, var(--gold-300), var(--gold-600)) 1;
   background:
     repeating-radial-gradient(circle at 50% 50%, rgba(255,255,255,0.045) 0 1px, transparent 1px 4px),
     radial-gradient(circle at 35% 28%, rgba(255,255,255,0.1), transparent 45%),
     radial-gradient(circle at 50% 50%, #1c1c1c 0 18%, #0a0a0a 19% 100%);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.55), 0 0 0 5px rgba(245,158,11,0.1), inset 0 0 10px rgba(0,0,0,0.7);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.55), inset 0 0 10px rgba(0,0,0,0.7);
   display: flex; align-items: center; justify-content: center;
   overflow: hidden; flex: 0 0 auto;
   transition: transform 0.25s var(--ease);

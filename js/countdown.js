@@ -1,7 +1,7 @@
 /* =============================================================
    countdown.js — Reloj de cuenta regresiva en tiempo real
    -------------------------------------------------------------
-   Objetivo: Sábado 27 de Septiembre, 1:00 PM (hora de Perú).
+   Objetivo: Sábado 27 de Septiembre, 1:30 PM (hora de Perú).
    El año se toma automáticamente (el próximo 27-Sep disponible),
    pero puedes fijarlo manualmente en EVENT_CONFIG.year.
    ============================================================= */
@@ -14,8 +14,8 @@
     year: null,   // null = automático. Pon 2026 para fijarlo.
     month: 9,     // Septiembre (1-12)
     day: 27,
-    hour: 13,     // 1:00 PM en formato 24h
-    minute: 0,
+    hour: 13,     // 1:30 PM en formato 24h
+    minute: 30,
     second: 0
   };
 

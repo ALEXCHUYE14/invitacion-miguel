@@ -17,7 +17,7 @@
      Ejemplo: https://script.google.com/macros/s/AKfy..../exec
   ------------------------------------------------------------- */
   var CONFIG = {
-    ENDPOINT: "https://script.google.com/macros/s/AKfycbzFwiRanU54aAjuAvnn_JowSPfDo4RbggUy1t7G1xShpxZPvZTVHxwJv0CCTEPx9Fy_/exec",
+    ENDPOINT: "https://script.google.com/macros/s/AKfycbxHyLeA9bkUzH_NfGCsYuRSzBKsI5Pb9gdh_VuwWEouyYdeQBnwVun2QWVIGUFhCJAn/exec",
 
     // Datos del evento para Google Calendar
     EVENT: {

@@ -44,8 +44,18 @@ function doPost(e) {
   try {
     var sheet = getSheet_();
 
-    // Los datos llegan como x-www-form-urlencoded => e.parameter
-    var params = (e && e.parameter) ? e.parameter : {};
+    // Los datos llegan como JSON en texto plano (e.postData.contents),
+    // con fallback a e.parameter por si se envían como form-urlencoded.
+    var params = {};
+    if (e && e.postData && e.postData.contents) {
+      try {
+        params = JSON.parse(e.postData.contents);
+      } catch (parseErr) {
+        params = (e && e.parameter) ? e.parameter : {};
+      }
+    } else if (e && e.parameter) {
+      params = e.parameter;
+    }
 
     var row = [
       params.fecha_envio ? new Date(params.fecha_envio) : new Date(),

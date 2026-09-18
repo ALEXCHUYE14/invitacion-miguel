@@ -182,13 +182,13 @@
     }
 
     // Google Apps Script + fetch.
-    // Usamos application/x-www-form-urlencoded para evitar el preflight CORS.
-    var body = new URLSearchParams(data).toString();
-
+    // Usamos text/plain (evita preflight CORS) y enviamos JSON en el cuerpo,
+    // ya que application/x-www-form-urlencoded puede perder el body en la
+    // redirección interna de Apps Script (e.parameter llega vacío).
     fetch(CONFIG.ENDPOINT, {
       method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
-      body: body
+      headers: { "Content-Type": "text/plain;charset=UTF-8" },
+      body: JSON.stringify(data)
     })
       .then(function (res) { return res.json().catch(function () { return { result: "success" }; }); })
       .then(function (json) {

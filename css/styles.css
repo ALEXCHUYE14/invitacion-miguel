@@ -444,21 +444,21 @@ button { font-family: inherit; cursor: pointer; }
 .field select,
 .field textarea {
   width: 100%; padding: 13px 15px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.16);
+  background: rgba(255,255,255,0.55);
+  border: 1px solid rgba(15,23,42,0.28);
   border-radius: 14px; color: var(--white);
   font-family: inherit; font-size: 0.92rem;
   transition: border-color 0.25s, box-shadow 0.25s, background 0.25s;
 }
 .field textarea { resize: vertical; min-height: 78px; }
 .field input::placeholder,
-.field textarea::placeholder { color: rgba(255,255,255,0.35); }
+.field textarea::placeholder { color: rgba(15,23,42,0.45); }
 .field input:focus,
 .field select:focus,
 .field textarea:focus {
   outline: none; border-color: var(--gold-500);
   box-shadow: 0 0 0 3px rgba(245,158,11,0.18);
-  background: rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.72);
 }
 .field select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23f59e0b' stroke-width='2.5'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 15px center; padding-right: 40px; }
 .field select option { background: var(--navy-800); color: var(--white); }
@@ -473,13 +473,13 @@ button { font-family: inherit; cursor: pointer; }
 .choice input { position: absolute; opacity: 0; pointer-events: none; }
 .choice-box {
   display: block; padding: 14px 16px; border-radius: 14px;
-  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.16);
+  background: rgba(255,255,255,0.5); border: 1px solid rgba(15,23,42,0.25);
   font-size: 0.9rem; color: var(--ink-soft);
   transition: all 0.25s var(--ease);
 }
 .choice input:checked + .choice-box {
   border-color: var(--gold-500); color: var(--white);
-  background: rgba(245,158,11,0.14);
+  background: rgba(245,158,11,0.3);
   box-shadow: 0 6px 18px rgba(245,158,11,0.22);
 }
 .choice input:focus-visible + .choice-box { box-shadow: 0 0 0 3px rgba(245,158,11,0.3); }

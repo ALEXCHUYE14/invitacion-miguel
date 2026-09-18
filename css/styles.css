@@ -143,7 +143,7 @@ button { font-family: inherit; cursor: pointer; }
 .s8 { bottom: 10%; left: 42%; font-size: 1rem;  animation-delay: 2.4s; }
 
 .splash-eyebrow {
-  color: var(--gold-300);
+  color: var(--navy-900);
   letter-spacing: 3px;
   text-transform: uppercase;
   font-size: 0.72rem;
@@ -281,7 +281,7 @@ button { font-family: inherit; cursor: pointer; }
 }
 
 .hero-eyebrow {
-  color: var(--gold-300);
+  color: var(--navy-900);
   text-transform: uppercase;
   letter-spacing: 4px;
   font-size: 0.75rem;

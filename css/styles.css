@@ -197,6 +197,9 @@ button { font-family: inherit; cursor: pointer; }
   --ink-soft: rgba(15, 23, 42, 0.78);
   --ink-dim: rgba(15, 23, 42, 0.6);
   --gold-300: var(--gold-600);
+  /* Texto sin color propio (heredado, como el de .hero-title) también
+     debe resolver a oscuro aquí, no al blanco global del body. */
+  color: var(--white);
 }
 .invitation::before {
   content: "";
